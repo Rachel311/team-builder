@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { useState } from 'react';
+import Form from './Components/Form'
 
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
       title: formValue.title.trim(),
     };
     setTeamMembers([...teamMembers, newMember]);
+    setFormValue({first_name: "",
+    last_name: "",
+    email: "",
+    title: "",})
   };
 
 
@@ -38,7 +43,7 @@ function App() {
       <Form values={formValue} onChange={onChange} onSubmit={onSubmit} />
       {teamMembers.map((friend) => {
         return (
-          <div> className="new-submissions" key={friend.id}>
+          <div className="new-submissions" key={friend.id}>
             <h2>{friend.first_name}</h2>
             <h2>{friend.last_name}</h2>
             <h3>{friend.email}</h3>
